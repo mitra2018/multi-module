@@ -50,15 +50,23 @@
 	<distributionManagement>
 		<repository>
 			<id>release-test</id>
-			<url>ftp://cp.sync.com/files</url>
+			<url>scpexe://cp.sync.com/files/test</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshot-test</id>
-			<url>ftp://cp.sync.com/files</url>
+			<url>scpexe://cp.sync.com/files/test</url>
 		</snapshotRepository>
 	</distributionManagement>
 
 	<build>
+		<extensions>
+			<!-- Enabling the use of SSH -->
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>1.0-beta-6</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
