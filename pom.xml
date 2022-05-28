@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -44,17 +44,17 @@
 		<connection>scm:git:https://github.com/mitra2018/multi-module.git</connection>
 		<developerConnection>scm:git:https://github.com/mitra2018/multi-module.git</developerConnection>
 		<url>https://github.com/mitra2018/multi-module.git</url>
-		<tag>@{project.version}</tag>
+		<tag>my-proj-1.2</tag>
 	</scm>
 
 	<distributionManagement>
 		<repository>
 			<id>release-test</id>
-			<url>sftp://cp.sync.com/files/3668666400</url>
+			<url>ftp://cp.sync.com/files</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshot-test</id>
-			<url>sftp://cp.sync.com/files/3668666400</url>
+			<url>ftp://cp.sync.com/files</url>
 		</snapshotRepository>
 	</distributionManagement>
 
