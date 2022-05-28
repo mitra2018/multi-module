@@ -49,12 +49,12 @@
 
 	<distributionManagement>
 		<repository>
-			<id>test</id>
-			<url>https://cp.sync.com/files/test</url>
+			<id>release-test</id>
+			<url>https://cp.sync.com/files/3668666400</url>
 		</repository>
 		<snapshotRepository>
-			<id>test</id>
-			<url>https://cp.sync.com/files/test</url>
+			<id>snapshot-test</id>
+			<url>https://cp.sync.com/files/3668666400</url>
 		</snapshotRepository>
 	</distributionManagement>
 
