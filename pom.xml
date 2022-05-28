@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -50,11 +50,11 @@
 	<distributionManagement>
 		<repository>
 			<id>release-test</id>
-			<url>scpexe://mitra.asghari@cp.sync.com/files/test</url>
+			<url>scpexe://m.asghari@192.168.87.205/Development/Share/mitra/release</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshot-test</id>
-			<url>scpexe://mitra.asghari@cp.sync.com/files/test</url>
+			<url>scpexe://m.asghari@192.168.87.205/Development/Share/mitra/snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
 
