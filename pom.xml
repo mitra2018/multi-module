@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -59,7 +59,7 @@
 	</distributionManagement>
 
 
-	<profiles>
+	<!--<profiles>
 		<profile>
 			<id>bump-patch</id>
 			<activation>
@@ -144,7 +144,7 @@
 				</plugins>
 			</build>
 		</profile>
-	</profiles>
+	</profiles>-->
 
 
 	<build>
@@ -190,6 +190,57 @@
 					</checkModificationExcludes>
 				</configuration>
 			</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>major</id>
+							<goals>
+								<goal>set</goal>
+							</goals>
+							<configuration>
+								<generateBackupPoms>false</generateBackupPoms>
+								<newVersion>${parsedVersion.nextMajorVersion}.0.0-SNAPSHOT</newVersion>
+							</configuration>
+						</execution>
+						<execution>
+							<id>minor</id>
+							<goals>
+								<goal>set</goal>
+							</goals>
+							<configuration>
+								<generateBackupPoms>false</generateBackupPoms>
+								<newVersion>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0-SNAPSHOT</newVersion>
+							</configuration>
+						</execution>
+						<execution>
+							<id>patch</id>
+							<goals>
+								<goal>set</goal>
+							</goals>
+							<configuration>
+								<generateBackupPoms>false</generateBackupPoms>
+								<newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT</newVersion>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>default-cli</id>
+							<goals>
+								<goal>parse-version</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+
 		</plugins>
 	</build>
 </project>
