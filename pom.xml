@@ -142,7 +142,7 @@
 						<artifactId>maven-release-plugin</artifactId>
 						<version>2.5.3</version>
 						<configuration>
-							<preparationGoals>versions:set@major</preparationGoals>
+							<preparationGoals>clean verify versions:set@major</preparationGoals>
 							<autoVersionSubmodules>true</autoVersionSubmodules>
 							<tagNameFormat>@{project.version}</tagNameFormat>
 							<checkModificationExcludes>
