@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>${parsedVersion.nextMajorVersion}.0.0-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 
@@ -92,18 +92,16 @@
 						<executions>
 							<execution>
 								<id>major</id>
-								<phase>deploy</phase>
 								<goals>
 									<goal>set</goal>
 								</goals>
 								<configuration>
 									<generateBackupPoms>false</generateBackupPoms>
-									<newVersion>${parsedVersion.nextMajorVersion}.0.0-SNAPSHOT</newVersion>
+									<newVersion>0.1.1-SNAPSHOT</newVersion>
 								</configuration>
 							</execution>
 							<execution>
 								<id>minor</id>
-								<phase>deploy</phase>
 								<goals>
 									<goal>set</goal>
 								</goals>
@@ -126,12 +124,6 @@
 						</executions>
 					</plugin>
 
-				<!--<plugin>
-					<groupId>com.amashchenko.maven.plugin</groupId>
-					<artifactId>gitflow-maven-plugin</artifactId>
-					<version>1.14.0</version>
-
-				</plugin>-->
 
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
@@ -139,7 +131,6 @@
 						<executions>
 							<execution>
 								<id>default-cli</id>
-								<phase>compile</phase>
 								<goals>
 									<goal>parse-version</goal>
 								</goals>
@@ -152,7 +143,6 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 				<configuration>
-					<!--<completionGoals>versions:set@major versions:commit</completionGoals>-->
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 					<checkModificationExcludes>
@@ -161,7 +151,6 @@
 					</checkModificationExcludes>
 				</configuration>
 			</plugin>
-
 			</plugins>
 		</pluginManagement>
 	</build>
