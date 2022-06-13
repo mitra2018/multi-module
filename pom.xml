@@ -152,7 +152,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 				<configuration>
-					<completionGoals>versions:set@major versions:commit</completionGoals>
+					<!--<completionGoals>versions:set@major versions:commit</completionGoals>-->
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 					<checkModificationExcludes>
