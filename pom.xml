@@ -116,6 +116,7 @@
 							</execution>
 							<execution>
 								<id>patch</id>
+								<phase>compile</phase>
 								<goals>
 									<goal>set</goal>
 								</goals>
