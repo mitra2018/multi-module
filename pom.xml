@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>0.1.1-SNAPSHO</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 
@@ -93,7 +93,7 @@
 						<executions>
 							<execution>
 								<id>major</id>
-								<phase>deploy</phase>
+								<phase>compile</phase>
 								<goals>
 									<goal>set</goal>
 								</goals>
@@ -104,6 +104,7 @@
 							</execution>
 							<execution>
 								<id>minor</id>
+								<phase>compile</phase>
 								<goals>
 									<goal>set</goal>
 								</goals>
@@ -131,6 +132,7 @@
 						<executions>
 							<execution>
 								<id>default-cli</id>
+								<phase>compile</phase>
 								<goals>
 									<goal>parse-version</goal>
 								</goals>
@@ -142,6 +144,7 @@
 						<artifactId>maven-release-plugin</artifactId>
 						<version>2.5.3</version>
 						<configuration>
+							<preparationGoals>clean verify</preparationGoals>
 							<autoVersionSubmodules>true</autoVersionSubmodules>
 							<tagNameFormat>@{project.version}</tagNameFormat>
 							<checkModificationExcludes>
