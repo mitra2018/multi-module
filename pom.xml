@@ -53,7 +53,6 @@
 	</distributionManagement>
 
 	<build>
-
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -87,7 +86,7 @@
 					<version>3.9.0</version>
 				</plugin>
 
-					<!--<plugin>
+					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>versions-maven-plugin</artifactId>
 						<executions>
@@ -126,17 +125,15 @@
 							</execution>
 						</executions>
 					</plugin>
--->
-				<plugin>
+
+				<!--<plugin>
 					<groupId>com.amashchenko.maven.plugin</groupId>
 					<artifactId>gitflow-maven-plugin</artifactId>
 					<version>1.14.0</version>
-					<!--<configuration>
-						<versionDigitToIncrement>1</versionDigitToIncrement>
-					</configuration>-->
-				</plugin>
 
-					<!--<plugin>
+				</plugin>-->
+
+					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
 						<executions>
@@ -148,25 +145,24 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>-->
+					</plugin>
 
 					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-release-plugin</artifactId>
-						<version>2.5.3</version>
-						<configuration>
-							<autoVersionSubmodules>true</autoVersionSubmodules>
-							<tagNameFormat>@{project.version}</tagNameFormat>
-							<checkModificationExcludes>
-								<checkModificationExclude>pom.xml</checkModificationExclude>
-								<checkModificationExclude>**</checkModificationExclude>
-							</checkModificationExcludes>
-						</configuration>
-					</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<completionGoals>versions:set@major versions:commit</completionGoals>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<checkModificationExcludes>
+						<checkModificationExclude>pom.xml</checkModificationExclude>
+						<checkModificationExclude>**</checkModificationExclude>
+					</checkModificationExcludes>
+				</configuration>
+			</plugin>
 
 			</plugins>
 		</pluginManagement>
-
-
 	</build>
 </project>
