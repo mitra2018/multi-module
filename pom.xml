@@ -97,7 +97,7 @@
 								</goals>
 								<configuration>
 									<generateBackupPoms>false</generateBackupPoms>
-									<newVersion>0.1.1-SNAPSHOT</newVersion>
+									<newVersion>${parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</newVersion>
 								</configuration>
 							</execution>
 							<execution>
