@@ -53,63 +53,6 @@
         </snapshotRepository>
     </distributionManagement>
 
-    <profiles>
-        <profile>
-            <id>change-version</id>
-            <build>
-                <defaultGoal>validate</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <version>1.7</version>
-                        <executions>
-                            <execution>
-                                <id>catch-new-version</id>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <phase>validate</phase>
-                                <configuration>
-                                    <target name="setVersion">
-                                        <input message="Please enter the new SNAPSHOT version (current is '${project.version}'):"
-                                               addproperty="new-user-version"/>
-                                        <echo>What's up, ${new-user-version}?</echo>
-                                    </target>
-                                    <exportAntProperties>true</exportAntProperties>
-                                </configuration>
-                            </execution>
-                        </executions>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.ant</groupId>
-                                <artifactId>ant</artifactId>
-                                <version>1.8.4</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>versions-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>set-new-version</id>
-                                <goals>
-                                    <goal>set</goal>
-                                </goals>
-                                <phase>validate</phase>
-                                <configuration>
-                                    <generateBackupPoms>false</generateBackupPoms>
-                                    <newVersion>${new-user-version}</newVersion>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -218,4 +161,80 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <profiles>
+        <profile>
+            <id>change-version</id>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>catch-new-version</id>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <phase>validate</phase>
+                                <configuration>
+                                    <target name="setVersion">
+                                        <input message="Please enter the new SNAPSHOT version (current is '${project.version}'):"
+                                               addproperty="new-user-version"/>
+                                        <echo>What's up, ${new-user-version}?</echo>
+                                    </target>
+<!--                                    <exportAntProperties>true</exportAntProperties>-->
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.ant</groupId>
+                                <artifactId>ant</artifactId>
+                                <version>1.8.4</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>set-new-version</id>
+                                <goals>
+                                    <goal>set</goal>
+                                </goals>
+                                <phase>validate</phase>
+                                <configuration>
+                                    <generateBackupPoms>false</generateBackupPoms>
+                                    <newVersion>${new-user-version}</newVersion>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <id>parse-version</id>
+                                <goals>
+                                    <goal>parse-version</goal>
+                                </goals>
+                                <configuration>
+                                    <propertyPrefix>parsedVersion</propertyPrefix>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
