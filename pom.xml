@@ -143,39 +143,16 @@
 					</executions>
 				</plugin>-->
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.1</version>
-					<executions>
-						<execution>
-							<phase>validate</phase>
-							<goals>
-								<goal>set</goal>
-							</goals>
-							<configuration>
-								<newVersion>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0-SNAPSHOT</newVersion>
-								<tasks>
-									<echo>Major: ${parsedVersion.majorVersion}</echo>
-									<echo>Minor: ${parsedVersion.minorVersion}</echo>
-									<echo>Incremental: ${parsedVersion.incrementalVersion}</echo>
-									<echo>Qualifier: ${parsedVersion.qualifier}</echo>
-									<echo>BuildNumber: ${parsedVersion.buildNumber}</echo>
-								</tasks>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
 
 					<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 						<goals>
-							<goal>run</goal>
+							<goal>set</goal>
 						</goals>
-
 				<configuration>
+					<developmentVersion>${parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</developmentVersion>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 					<checkModificationExcludes>
