@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>{$parsedVersion.nextMajorVersion}.{$parsedVersion.minorVersion}.0-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 
@@ -97,7 +97,7 @@
 								</goals>
 								<configuration>
 									<generateBackupPoms>false</generateBackupPoms>
-									<newVersion>{$parsedVersion.nextMajorVersion}.{$parsedVersion.minorVersion}.0-SNAPSHOT</newVersion>
+									<newVersion>@{parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</newVersion>
 								</configuration>
 							</execution>
 							<execution>
