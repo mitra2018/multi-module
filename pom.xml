@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>${parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 
@@ -125,7 +125,7 @@
 					</plugin>-->
 
 
-				<!--<plugin>
+				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
 					<version>1.7</version>
@@ -141,16 +141,48 @@
 							</configuration>
 						</execution>
 					</executions>
-				</plugin>-->
+				</plugin>
 
 
 					<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
+                        <executions>
+                            <execution>
+                                <id>major</id>
+                                <goals>
+                                    <goal>set</goal>
+                                </goals>
+                                <configuration>
+                                    <generateBackupPoms>false</generateBackupPoms>
+                                    <newVersion>${parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</newVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>minor</id>
+                                <goals>
+                                    <goal>set</goal>
+                                </goals>
+                                <configuration>
+                                    <nextSnapshot>true</nextSnapshot>
+                                    <generateBackupPoms>false</generateBackupPoms>
+                                    <newVersion>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0-SNAPSHOT</newVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>patch</id>
+                                <goals>
+                                    <goal>set</goal>
+                                </goals>
+                                <configuration>
+                                    <generateBackupPoms>false</generateBackupPoms>
+                                    <newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT</newVersion>
+                                </configuration>
+                            </execution>
+                        </executions>
 
 				<configuration>
-					<developmentVersion>${parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</developmentVersion>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 					<checkModificationExcludes>
