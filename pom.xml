@@ -152,32 +152,28 @@
                             <execution>
                                 <id>major</id>
                                 <goals>
-                                    <goal>set</goal>
+                                    <goal>prepare</goal>
                                 </goals>
                                 <configuration>
-                                    <generateBackupPoms>false</generateBackupPoms>
-                                    <newVersion>${parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</newVersion>
+                                    <developmentVersion>${parsedVersion.nextMajorVersion}.${parsedVersion.minorVersion}.0-SNAPSHOT</developmentVersion>
                                 </configuration>
                             </execution>
                             <execution>
                                 <id>minor</id>
                                 <goals>
-                                    <goal>set</goal>
+                                    <goal>prepare</goal>
                                 </goals>
                                 <configuration>
-                                    <nextSnapshot>true</nextSnapshot>
-                                    <generateBackupPoms>false</generateBackupPoms>
-                                    <newVersion>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0-SNAPSHOT</newVersion>
+                                    <developmentVersion>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0-SNAPSHOT</developmentVersion>
                                 </configuration>
                             </execution>
                             <execution>
                                 <id>patch</id>
                                 <goals>
-                                    <goal>set</goal>
+                                    <goal>prepare</goal>
                                 </goals>
                                 <configuration>
-                                    <generateBackupPoms>false</generateBackupPoms>
-                                    <newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT</newVersion>
+                                    <developmentVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT</developmentVersion>
                                 </configuration>
                             </execution>
                         </executions>
