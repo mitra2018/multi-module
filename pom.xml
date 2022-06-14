@@ -4,7 +4,7 @@
 
 	<groupId>com.demo</groupId>
 	<artifactId>spring-boot-multi-module-project</artifactId>
-	<version>0.1.1</version>
+	<version>0.1.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 
@@ -38,7 +38,7 @@
 		<connection>scm:git:https://github.com/mitra2018/multi-module.git</connection>
 		<developerConnection>scm:git:https://github.com/mitra2018/multi-module.git</developerConnection>
 		<url>https://github.com/mitra2018/multi-module.git</url>
-		<tag>0.1.1</tag>
+		<tag>${project.version}</tag>
 	</scm>
 
 	<distributionManagement>
