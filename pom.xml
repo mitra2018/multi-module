@@ -71,10 +71,10 @@
                                 </goals>
                                 <phase>validate</phase>
                                 <configuration>
-                                    <target>
-                                        <input
-                                                message="Please enter the new SNAPSHOT version (current is '${project.version}'): "
-                                                addproperty="new-user-version"/>
+                                    <target name="setVersion">
+                                        <input message="Please enter the new SNAPSHOT version (current is '${project.version}'):"
+                                               addproperty="new-user-version"/>
+                                        <echo>What's up, ${new-user-version}?</echo>
                                     </target>
                                     <exportAntProperties>true</exportAntProperties>
                                 </configuration>
