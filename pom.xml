@@ -4,7 +4,7 @@
 
     <groupId>com.demo</groupId>
     <artifactId>spring-boot-multi-module-project</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>2.0.0</version>
     <packaging>pom</packaging>
 
 
@@ -38,7 +38,7 @@
         <connection>scm:git:https://github.com/mitra2018/multi-module.git</connection>
         <developerConnection>scm:git:https://github.com/mitra2018/multi-module.git</developerConnection>
         <url>https://github.com/mitra2018/multi-module.git</url>
-        <tag>${project.version}</tag>
+        <tag>2.0.0</tag>
     </scm>
 
     <distributionManagement>
@@ -160,7 +160,7 @@
         </pluginManagement>
     </build>
 
-    <profiles>
+   <!-- <profiles>
         <profile>
             <id>change-version</id>
             <build>
@@ -213,7 +213,7 @@
                         </executions>
                     </plugin>
 
-                    <!--<plugin>
+                    &lt;!&ndash;<plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>build-helper-maven-plugin</artifactId>
                         <executions>
@@ -228,11 +228,11 @@
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin>-->
+                    </plugin>&ndash;&gt;
 
                 </plugins>
             </build>
         </profile>
-    </profiles>
+    </profiles>-->
 
 </project>
