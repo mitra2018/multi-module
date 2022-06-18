@@ -160,7 +160,7 @@
         </pluginManagement>
     </build>
 
-   <!-- <profiles>
+    <profiles>
         <profile>
             <id>change-version</id>
             <build>
@@ -213,7 +213,7 @@
                         </executions>
                     </plugin>
 
-                    &lt;!&ndash;<plugin>
+                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>build-helper-maven-plugin</artifactId>
                         <executions>
@@ -228,11 +228,11 @@
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin>&ndash;&gt;
+                    </plugin>
 
                 </plugins>
             </build>
         </profile>
-    </profiles>-->
+    </profiles>
 
 </project>
